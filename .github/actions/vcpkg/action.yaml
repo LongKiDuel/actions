@@ -5,11 +5,27 @@ author: ''
 runs:
   using: "composite"
   steps:
-    run: git clone https://github.com/microsoft/vcpkg
-    run: echo vcpkg installed
-    # run: vcpkg/bootstrap-vcpkg.bat
-    run: vcpkg/bootstrap-vcpkg.sh
-    run: echo VCPKG_ROOT is $(pwd)/vcpkg
-    run: echo "VCPKG_ROOT=$(pwd)/vcpkg" >> $GITHUB_ENV
-    # - run: $GITHUB_ACTION_PATH/script.sh
-    #  shell: bash
+    - name: Clone vcpkg repository
+      run: git clone https://github.com/microsoft/vcpkg
+
+    - name: Print vcpkg installed
+      run: echo vcpkg installed
+
+    # Uncomment the following line if you are using Windows
+    # - name: Bootstrap vcpkg
+    #   run: vcpkg/bootstrap-vcpkg.bat
+
+    # Uncomment the following line if you are using Linux or macOS
+    - name: Bootstrap vcpkg
+      run: vcpkg/bootstrap-vcpkg.sh
+
+    - name: Set VCPKG_ROOT environment variable
+      run: echo "VCPKG_ROOT=$(pwd)/vcpkg" >> $GITHUB_ENV
+
+    # Uncomment the following line if you have a script.sh file in your repository
+    # - name: Run script.sh
+    #   run: $GITHUB_ACTION_PATH/script.sh
+    #   shell: bash
+
+    - name: Print VCPKG_ROOT
+      run: echo VCPKG_ROOT is $(pwd)/vcpkg
