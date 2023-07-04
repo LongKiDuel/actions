@@ -24,5 +24,8 @@ jobs:
       - name: install vcpkg
         uses: ./.github/actions/vcpkg
       
+      - name: print vcpkg info
+        run: echo $VCPKG_ROOT
+      
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
