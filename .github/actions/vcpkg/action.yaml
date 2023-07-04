@@ -20,28 +20,28 @@ runs:
 
     - name: Set VCPKG_ROOT environment variable
       run: |
-      if [[ ${{ runner.os }} == 'Windows' ]]; then
-        echo echo VCPKG_ROOT=%cd%\vcpkg >> $GITHUB_ENV
-      elif [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
-        echo "VCPKG_ROOT=$(pwd)/vcpkg" >> $GITHUB_ENV
-      fi
+        if [[ ${{ runner.os }} == 'Windows' ]]; then
+          echo echo VCPKG_ROOT=%cd%\vcpkg >> $GITHUB_ENV
+        elif [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
+          echo "VCPKG_ROOT=$(pwd)/vcpkg" >> $GITHUB_ENV
+        fi
       shell: bash
       
     - name: Set CMAKE_TOOLCHAIN_FILE environment variable
       run: |
-      if [[ ${{ runner.os }} == 'Windows' ]]; then
-        echo CMAKE_TOOLCHAIN_FILE=%cd%\vcpkg\scripts\buildsystems\vcpkg.cmake >> $GITHUB_ENV
-      elif [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
-        echo "CMAKE_TOOLCHAIN_FILE=$(pwd)/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
-      fi
+        if [[ ${{ runner.os }} == 'Windows' ]]; then
+          echo CMAKE_TOOLCHAIN_FILE=%cd%\vcpkg\scripts\buildsystems\vcpkg.cmake >> $GITHUB_ENV
+        elif [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
+          echo "CMAKE_TOOLCHAIN_FILE=$(pwd)/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
+        fi
       shell: bash
       
 
     - name: Print VCPKG_ROOT
       run: |
-      if [[ ${{ runner.os }} == 'Windows' ]]; then
-        echo VCPKG_ROOT is %VCPKG_ROOT%
-      elif [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
-        echo VCPKG_ROOT is $(VCPKG_ROOT)
-      fi
+        if [[ ${{ runner.os }} == 'Windows' ]]; then
+          echo VCPKG_ROOT is %VCPKG_ROOT%
+        elif [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
+          echo VCPKG_ROOT is $(VCPKG_ROOT)
+        fi
       shell: bash
