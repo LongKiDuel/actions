@@ -32,3 +32,20 @@ runs:
       run: |
         echo VCPKG_ROOT is $VCPKG_ROOT
       shell: bash
+
+    - name: Add vcpkg to PATH
+      run: |
+             echo "$VCPKG_ROOT" >> $GITHUB_PATH
+      shell: bash
+ 
+
+
+    - name: Integrate VCPKG_ROOT
+      run: |
+        vcpkg integrate install
+      shell: bash
+
+    - name: Print vcpkg version
+      run: |
+        vcpkg version
+      shell: bash
