@@ -22,7 +22,7 @@ jobs:
           path: version.txt
           
       - name: install vcpkg
-        uses: ./github/action/vcpkg
+        uses: ./.github/actions/vcpkg
       
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
