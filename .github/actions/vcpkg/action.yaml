@@ -3,8 +3,15 @@ description: ''
 author: ''
 inputs:
 
+
 runs:
-   run: git clone https://github.com/microsoft/vcpkg
-   run: echo vcpkg installed
-   # run: vcpkg/bootstrap-vcpkg.bat
-   run: vcpkg/bootstrap-vcpkg.sh
+  using: "composite"
+  steps:
+    run: git clone https://github.com/microsoft/vcpkg
+    run: echo vcpkg installed
+    # run: vcpkg/bootstrap-vcpkg.bat
+    run: vcpkg/bootstrap-vcpkg.sh
+    run: echo VCPKG_ROOT is $(pwd)/vcpkg
+    run: echo "VCPKG_ROOT=$(pwd)/vcpkg" >> $GITHUB_ENV
+    # - run: $GITHUB_ACTION_PATH/script.sh
+    #  shell: bash
