@@ -42,6 +42,6 @@ runs:
         if [[ ${{ runner.os }} == 'Windows' ]]; then
           echo VCPKG_ROOT is %VCPKG_ROOT%
         elif [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
-          echo VCPKG_ROOT is $(VCPKG_ROOT)
+          echo VCPKG_ROOT is $VCPKG_ROOT
         fi
       shell: bash
