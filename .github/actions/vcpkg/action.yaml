@@ -1,0 +1,10 @@
+name: 'vcpkg'
+description: ''
+author: ''
+inputs:
+
+runs:
+   run: git clone https://github.com/microsoft/vcpkg
+   run: echo vcpkg installed
+   # run: vcpkg/bootstrap-vcpkg.bat
+   run: vcpkg/bootstrap-vcpkg.sh
