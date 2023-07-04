@@ -20,4 +20,12 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           path: version.txt
+          
+      - name: install vcpkg
+        uses: ./.github/actions/vcpkg
+      
+      - name: print vcpkg info
+        run: echo $VCPKG_ROOT
+      
+          
       - run: echo "🍏 This job's status is ${{ job.status }}."
