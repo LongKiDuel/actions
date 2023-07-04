@@ -20,4 +20,9 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           path: version.txt
+          
+      - name: install vcpkg
+        uses: ./github/action/vcpkg
+      
+          
       - run: echo "🍏 This job's status is ${{ job.status }}."
