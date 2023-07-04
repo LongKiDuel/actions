@@ -1,8 +1,6 @@
 name: 'vcpkg'
 description: ''
 author: ''
-inputs:
-
 
 runs:
   using: "composite"
