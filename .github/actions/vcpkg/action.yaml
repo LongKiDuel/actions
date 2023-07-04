@@ -41,7 +41,7 @@ runs:
         fi
       
     - name: Set CMAKE_TOOLCHAIN_FILE environment variable on windows
-      if if: runner.os == 'Windows'
+      if: runner.os == 'Windows'
       shell: cmd
       run: |
         echo CMAKE_TOOLCHAIN_FILE=%cd%\vcpkg\scripts\buildsystems\vcpkg.cmake >> $GITHUB_ENV
