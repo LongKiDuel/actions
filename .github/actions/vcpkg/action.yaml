@@ -21,6 +21,11 @@ runs:
     - name: Set VCPKG_ROOT environment variable
       run: echo "VCPKG_ROOT=$(pwd)/vcpkg" >> $GITHUB_ENV
       shell: bash
+      
+    - name: Set CMAKE_TOOLCHAIN_FILE environment variable
+      run: echo "CMAKE_TOOLCHAIN_FILE=$(pwd)/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
+      shell: bash
+      
 
     - name: Print VCPKG_ROOT
       run: echo VCPKG_ROOT is $(pwd)/vcpkg
