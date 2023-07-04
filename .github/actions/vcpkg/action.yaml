@@ -20,33 +20,13 @@ runs:
 
     - name: Set VCPKG_ROOT environment variable
       run: |
-        if [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
-          echo "VCPKG_ROOT=$(pwd)/vcpkg" >> $GITHUB_ENV
-        fi
+        echo "VCPKG_ROOT=$GITHUB_WORKSPACE/vcpkg" >> $GITHUB_ENV
       shell: bash
       
     - name: Set CMAKE_TOOLCHAIN_FILE environment variable
       run: |
-        if [[ ${{ runner.os }} == 'Linux' || ${{ runner.os }} == 'macOS' ]]; then
-          echo "CMAKE_TOOLCHAIN_FILE=$(pwd)/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
-        fi
+        echo "CMAKE_TOOLCHAIN_FILE=$GITHUB_WORKSPACE/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
       shell: bash
-
-    - name: Set VCPKG_ROOT environment variable on windows
-      if: runner.os == 'Windows'
-      shell: cmd
-      run: |
-        if [[ ${{ runner.os }} == 'Windows' ]]; then
-          echo VCPKG_ROOT=%cd%\vcpkg >> %GITHUB_ENV%
-        fi
-      
-    - name: Set CMAKE_TOOLCHAIN_FILE environment variable on windows
-      if: runner.os == 'Windows'
-      shell: cmd
-      run: |
-        echo CMAKE_TOOLCHAIN_FILE=%cd%\vcpkg\scripts\buildsystems\vcpkg.cmake >> %GITHUB_ENV%
-
-      
 
     - name: Print VCPKG_ROOT
       run: |
